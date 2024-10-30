@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "pysolve"
+version = "0.1.0"
+description = ""
+authors = ["constatza <29166969+constatza@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9, <3.13"
+pythonnet = "^3.0.4"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.10.0"
+pytest = "^8.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+

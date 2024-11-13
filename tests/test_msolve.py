@@ -3,20 +3,22 @@ import pytest
 from pysolve.loaders import load_assembly
 
 
-def test_material():
+def test_CantileverBeam2DTest():
     # Load the DLL
-    load_assembly("MaterialStochastic",
-                  assembly_dir="/home/archer/projects/mgroup/CntConcreteBayesian.Tests/MaterialStochastic/bin/x64/Release/net8.0/linux-x64/")
-    import clr
-    import System
-
-    loaded_assemblies = System.AppDomain.CurrentDomain.GetAssemblies()
-    for assembly in loaded_assemblies:
-        print(assembly.FullName)
+    load_assembly("MGroup.FEM.Structural.Tests.dll",
+                  assembly_dir="/home/archer/projects/mgroup/MSolve.Tests/tests/MGroup.FEM.Structural.Tests/bin/Debug/net6.0/")
 
     # Reload the assembly to be certain
-    from MaterialStochastic.Program import Main
+    from MGroup.FEM.Structural.Tests.Integration import CantileverBeam2DTest
+
+    # need to create an instance of the test class
+    # ITestOutputHelper must be removed or mocked, cause can't import in python
+    test = CantileverBeam2DTest()
+    test.RunTest()
 
 
 
-    assert program.Main() == 0
+
+
+
+
